@@ -43,3 +43,12 @@ func TestUnpackInvalidString(t *testing.T) {
 		})
 	}
 }
+
+func TestUnpackExtra(t *testing.T) {
+	input := "abc3bn4"
+	expected := "abcccbnnnn"
+
+	result, err := Unpack(input)
+	require.NoError(t, err)
+	require.Equal(t, expected, result)
+}
